@@ -1,0 +1,67 @@
+{
+  "name": "Python 3.13 Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
+  
+  // Configuración de funcionalidades
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Configuración del contenedor
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.flake8",
+        "ms-python.pylint",
+        "ms-python.black-formatter",
+        "ms-toolsai.jupyter",
+        "ms-python.debugpy",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length=88"],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        }
+      }
+    }
+  },
+
+  // Configuración de puertos (útil para aplicaciones web)
+  "forwardPorts": [8000, 5000, 3000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Django/FastAPI"
+    },
+    "5000": {
+      "label": "Flask"
+    },
+    "3000": {
+      "label": "Frontend"
+    }
+  },
+
+  // Comandos post-creación para optimizar el entorno
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt || true",
+
+  // Usuario no root para seguridad
+  "remoteUser": "vscode",
+
+  // Montar volumen para cache de pip (optimización)
+  "mounts": [
+    "source=python-pip-cache,target=/home/vscode/.cache/pip,type=volume"
+  ],
+
+  // Variables de entorno
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

@@ -1,0 +1,20 @@
+# Herramientas de desarrollo
+black==23.*
+flake8==6.*
+pylint==3.*
+pytest==7.*
+pytest-cov==4.*
+
+# Dependencias científicas básicas (comentadas por defecto)
+# numpy==1.*
+# pandas==2.*
+# matplotlib==3.*
+# jupyter==1.*
+
+# Dependencias web básicas (comentadas por defecto)
+# fastapi==0.*
+# uvicorn==0.*
+# requests==2.*
+
+# Otras herramientas útiles
+python-dotenv==1.*

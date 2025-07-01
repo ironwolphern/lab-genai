@@ -5,11 +5,12 @@ Este proyecto está configurado con un devcontainer optimizado para desarrollo e
 ## 🚀 Características
 
 - **Python 3.13**: Última versión de Python con mejoras de rendimiento
+- **uv**: Gestor de paquetes ultrarrápido para Python
 - **Herramientas de desarrollo**: Black, Flake8, Pylint, Pytest preinstalados
 - **Extensiones VS Code**: Configuración automática de extensiones Python
 - **Dependabot**: Actualizaciones automáticas de dependencias
 - **GitHub Actions**: CI/CD automático con Dependabot
-- **Optimizaciones**: Cache de pip persistente y configuraciones de rendimiento
+- **Optimizaciones**: Cache de pip y uv persistente para máximo rendimiento
 - **Formateo automático**: Black configurado para formatear al guardar
 - **Linting**: Pylint y Flake8 habilitados por defecto
 
@@ -66,11 +67,18 @@ python main.py
 # Verificar la versión de Python
 python --version
 
-# Instalar dependencias adicionales
+# Instalar dependencias adicionales (usando uv para mayor velocidad)
+uv pip install numpy pandas
+
+# O usando pip tradicional
 pip install numpy pandas
 ```
 
 ## 📋 Dependencias Incluidas
+
+### Gestión de paquetes
+- `uv`: Gestor de paquetes ultrarrápido (10-100x más rápido que pip)
+- `pip`: Gestor de paquetes tradicional (como respaldo)
 
 ### Herramientas de desarrollo (instaladas por defecto)
 - `black`: Formateador de código
@@ -79,6 +87,7 @@ pip install numpy pandas
 - `pytest`: Framework de testing
 - `pytest-cov`: Cobertura de tests
 - `python-dotenv`: Manejo de variables de entorno
+- `pyyaml`: Para validar configuración de Dependabot
 
 ### Dependencias opcionales (comentadas en requirements.txt)
 - Científicas: numpy, pandas, matplotlib, jupyter
@@ -90,7 +99,7 @@ pip install numpy pandas
 - **Organización de imports**: Automática al guardar
 - **Puertos expuestos**: 3000, 5000, 8000 para desarrollo web
 - **Variables de entorno**: Configuradas para mejor rendimiento Python
-- **Cache de pip**: Persistente entre reconstrucciones del contenedor
+- **Cache de pip y uv**: Persistente entre reconstrucciones para máxima velocidad
 
 ## 🤖 Dependabot
 
@@ -110,6 +119,47 @@ Este proyecto incluye configuración de Dependabot para mantener las dependencia
 
 ### Configuración manual:
 Para modificar el comportamiento de Dependabot, edita `.github/dependabot.yml`
+
+## ⚡ uv - Gestor de Paquetes Ultrarrápido
+
+Este proyecto incluye `uv`, un gestor de paquetes de Python de última generación que es significativamente más rápido que pip tradicional.
+
+### 🚀 Beneficios de uv:
+- **10-100x más rápido** que pip para instalación de paquetes
+- **Resolución de dependencias más inteligente** y rápida
+- **Compatible con pip** - misma sintaxis, mejores resultados
+- **Cache más eficiente** que reduce descargas duplicadas
+- **Mejor manejo de conflictos** de dependencias
+
+### 🛠️ Comandos principales:
+```bash
+# Instalación básica
+uv pip install requests fastapi
+
+# Instalación desde requirements.txt
+uv pip install -r requirements.txt
+
+# Sincronización exacta (remueve paquetes no listados)
+uv pip sync requirements.txt
+
+# Listar paquetes instalados
+uv pip list
+
+# Mostrar información de un paquete
+uv pip show requests
+
+# Verificar paquetes desactualizados
+uv pip list --outdated
+```
+
+### 🔄 Migración desde pip:
+Si ya tienes un entorno con pip, puedes migrar fácilmente:
+```bash
+# uv es compatible con pip, simplemente reemplaza el comando
+pip install paquete    →    uv pip install paquete
+pip freeze            →    uv pip freeze
+pip list              →    uv pip list
+```
 
 ## 📄 Documentación del Proyecto
 
@@ -143,26 +193,23 @@ Para personalizar el entorno:
 ## 📝 Comandos Útiles
 
 ```bash
-# Instalar nueva dependencia
-pip install nombre-paquete
+# Gestión de paquetes con uv (recomendado - mucho más rápido)
+uv pip install nombre-paquete      # Instalar nueva dependencia
+uv pip freeze > requirements.txt   # Actualizar requirements.txt
+uv pip sync requirements.txt       # Sincronizar entorno exacto
 
-# Actualizar requirements.txt
-pip freeze > requirements.txt
+# Gestión de paquetes con pip tradicional (respaldo)
+pip install nombre-paquete         # Instalar nueva dependencia
+pip freeze > requirements.txt      # Actualizar requirements.txt
 
-# Ejecutar tests
-pytest
+# Testing y calidad de código
+pytest                             # Ejecutar tests
+black .                           # Formatear todo el código
+flake8 .                          # Verificar estilo
+pylint *.py                       # Análisis con pylint
 
-# Formatear todo el código
-black .
-
-# Verificar estilo
-flake8 .
-
-# Análisis con pylint
-pylint *.py
-
-# Gestionar dependencias con Dependabot
-python dependabot_manager.py
+# Gestión de proyecto
+python dependabot_manager.py       # Gestionar dependencias con Dependabot
 ```
 
 ## 🤝 Contribución

@@ -74,7 +74,8 @@ def check_outdated_packages() -> Dict[str, str]:
     """Verifica qué paquetes están desactualizados."""
     print("🔍 Verificando paquetes desactualizados...")
     
-    code, output = run_command("pip list --outdated --format=json")
+    # Intentar primero con uv, luego con pip tradicional
+    code, output = run_command("uv pip list --outdated --format=json 2>/dev/null || pip list --outdated --format=json")
     
     if code != 0:
         print(f"❌ Error al verificar paquetes: {output}")
@@ -115,13 +116,18 @@ def main():
     else:
         print("\n✅ Todos los paquetes están actualizados")
     
-    # Información sobre Dependabot
-    print("\n🔧 Comandos útiles de GitHub CLI:")
-    print("  - Ver PRs de Dependabot: gh pr list --author 'dependabot[bot]'")
-    print("  - Fusionar PR específico: gh pr merge <número> --squash")
-    print("  - Ver estado del repositorio: gh repo view --web")
+    # Información sobre Dependabot y herramientas
+    print("\n🔧 Comandos útiles:")
+    print("  GitHub CLI:")
+    print("    - Ver PRs de Dependabot: gh pr list --author 'dependabot[bot]'")
+    print("    - Fusionar PR específico: gh pr merge <número> --squash")
+    print("    - Ver estado del repositorio: gh repo view --web")
+    print("  uv (gestor de paquetes rápido):")
+    print("    - Instalar paquete: uv pip install <paquete>")
+    print("    - Actualizar requirements: uv pip freeze > requirements.txt")
+    print("    - Sincronizar entorno: uv pip sync requirements.txt")
     
-    print("\n✨ ¡Dependabot está configurado y listo!")
+    print("\n✨ ¡Dependabot y uv están configurados y listos!")
 
 
 if __name__ == "__main__":

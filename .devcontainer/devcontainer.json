@@ -5,7 +5,8 @@
   // Configuración de funcionalidades
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/astral-sh/uv/uv:latest": {}
   },
 
   // Configuración del contenedor
@@ -48,15 +49,16 @@
     }
   },
 
-  // Comandos post-creación para optimizar el entorno
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt || true",
+  // Comandos post-creación para optimizar el entorno con uv
+  "postCreateCommand": "uv pip install --upgrade pip && uv pip install -r requirements.txt || true",
 
   // Usuario no root para seguridad
   "remoteUser": "vscode",
 
-  // Montar volumen para cache de pip (optimización)
+  // Montar volúmenes para cache de pip y uv (optimización)
   "mounts": [
-    "source=python-pip-cache,target=/home/vscode/.cache/pip,type=volume"
+    "source=python-pip-cache,target=/home/vscode/.cache/pip,type=volume",
+    "source=uv-cache,target=/home/vscode/.cache/uv,type=volume"
   ],
 
   // Variables de entorno

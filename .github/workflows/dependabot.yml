@@ -24,10 +24,21 @@ jobs:
           python-version: '3.13'
           cache: 'pip'
 
+      - name: Instalar uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+
       - name: Instalar dependencias
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Usar uv si está disponible, sino pip tradicional
+          if command -v uv &> /dev/null; then
+            uv pip install --upgrade pip
+            uv pip install -r requirements.txt
+          else
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          fi
 
       - name: Ejecutar linting
         run: |

@@ -1,0 +1,56 @@
+# Archivo CODEOWNERS para lab-genai
+# Este archivo define quién es responsable de revisar los cambios en diferentes partes del código
+# Más información: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Reglas globales - Estos usuarios son dueños de todo el código por defecto
+* @ironwolphern
+
+# Archivos de configuración principal
+/.devcontainer/ @ironwolphern
+/requirements.txt @ironwolphern
+/main.py @ironwolphern
+
+# Archivos de documentación
+/README.md @ironwolphern
+/CONTRIBUTING.md @ironwolphern
+/CODE_OF_CONDUCT.md @ironwolphern
+/SECURITY.md @ironwolphern
+
+# Configuración de GitHub
+/.github/ @ironwolphern
+/.github/dependabot.yml @ironwolphern
+/.github/workflows/ @ironwolphern
+/.github/ISSUE_TEMPLATE/ @ironwolphern
+/.github/PULL_REQUEST_TEMPLATE/ @ironwolphern
+
+# Archivos de licencia y legal
+/LICENSE @ironwolphern
+
+# Scripts de utilidad
+/dependabot_manager.py @ironwolphern
+
+# Archivos de configuración de herramientas de desarrollo
+/.gitignore @ironwolphern
+/.github/.gitignore @ironwolphern
+
+# Archivos Python específicos
+*.py @ironwolphern
+
+# Archivos de tests (cuando se agreguen)
+/tests/ @ironwolphern
+*test*.py @ironwolphern
+
+# Archivos de configuración de CI/CD
+/.github/workflows/*.yml @ironwolphern
+
+# Archivos de configuración de seguridad
+/SECURITY.md @ironwolphern
+/.github/dependabot-security.yml @ironwolphern
+
+# Nota: Para proyectos colaborativos, puedes agregar más usuarios/equipos:
+# Ejemplo:
+# /frontend/ @frontend-team
+# /backend/ @backend-team
+# /docs/ @docs-team @technical-writers
+# *.md @technical-writers
+# /security/ @security-team @ironwolphern

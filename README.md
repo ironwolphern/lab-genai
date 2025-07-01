@@ -7,6 +7,8 @@ Este proyecto está configurado con un devcontainer optimizado para desarrollo e
 - **Python 3.13**: Última versión de Python con mejoras de rendimiento
 - **Herramientas de desarrollo**: Black, Flake8, Pylint, Pytest preinstalados
 - **Extensiones VS Code**: Configuración automática de extensiones Python
+- **Dependabot**: Actualizaciones automáticas de dependencias
+- **GitHub Actions**: CI/CD automático con Dependabot
 - **Optimizaciones**: Cache de pip persistente y configuraciones de rendimiento
 - **Formateo automático**: Black configurado para formatear al guardar
 - **Linting**: Pylint y Flake8 habilitados por defecto
@@ -17,10 +19,28 @@ Este proyecto está configurado con un devcontainer optimizado para desarrollo e
 .
 ├── .devcontainer/
 │   └── devcontainer.json    # Configuración del contenedor
-├── .gitignore              # Archivos ignorados por Git
-├── requirements.txt        # Dependencias Python
-├── main.py                # Archivo de ejemplo
-└── README.md              # Este archivo
+├── .github/
+│   ├── ISSUE_TEMPLATE/      # Plantillas para issues
+│   │   ├── bug_report.md
+│   │   ├── feature_request.md
+│   │   ├── documentation.md
+│   │   ├── help.md
+│   │   └── config.yml
+│   ├── workflows/
+│   │   └── dependabot.yml   # Workflow de auto-merge
+│   ├── dependabot.yml       # Configuración de Dependabot
+│   ├── dependabot-security.yml  # Configuración de seguridad
+│   └── PULL_REQUEST_TEMPLATE.md # Plantilla para PRs
+├── .gitignore               # Archivos ignorados por Git
+├── CODEOWNERS              # Propietarios de código
+├── CODE_OF_CONDUCT.md      # Código de conducta
+├── CONTRIBUTING.md         # Guía de contribución
+├── LICENSE                 # Licencia MIT
+├── SECURITY.md            # Política de seguridad
+├── requirements.txt       # Dependencias Python
+├── main.py               # Archivo de ejemplo
+├── dependabot_manager.py # Script de gestión de Dependabot
+└── README.md            # Este archivo
 ```
 
 ## 🛠️ Uso del Devcontainer
@@ -72,6 +92,46 @@ pip install numpy pandas
 - **Variables de entorno**: Configuradas para mejor rendimiento Python
 - **Cache de pip**: Persistente entre reconstrucciones del contenedor
 
+## 🤖 Dependabot
+
+Este proyecto incluye configuración de Dependabot para mantener las dependencias actualizadas automáticamente:
+
+### Características del Dependabot configurado:
+- **Programación**: Revisa dependencias cada lunes a las 9:00 AM (zona horaria Madrid)
+- **Límite de PRs**: Máximo 5 pull requests abiertos simultáneamente
+- **Agrupación inteligente**: Las dependencias relacionadas se agrupan en un solo PR
+- **Auto-merge**: Actualizaciones menores de herramientas de desarrollo se fusionan automáticamente
+- **Etiquetas**: PRs marcados con `dependencies` y `python`
+
+### Grupos de dependencias:
+- **Desarrollo**: black, flake8, pylint, pytest
+- **Científicas**: numpy, pandas, matplotlib, jupyter
+- **Web**: fastapi, uvicorn, requests
+
+### Configuración manual:
+Para modificar el comportamiento de Dependabot, edita `.github/dependabot.yml`
+
+## 📄 Documentación del Proyecto
+
+Este repositorio incluye documentación completa para facilitar la contribución:
+
+### 📋 Archivos de Documentación
+- **`LICENSE`**: Licencia MIT del proyecto
+- **`CONTRIBUTING.md`**: Guía detallada para contribuir al proyecto
+- **`CODE_OF_CONDUCT.md`**: Código de conducta para la comunidad
+- **`SECURITY.md`**: Política de seguridad y cómo reportar vulnerabilidades
+- **`CODEOWNERS`**: Define los propietarios responsables de diferentes partes del código
+
+### 🎫 Plantillas de GitHub
+- **Issues**: Plantillas para reportar bugs, solicitar características, mejorar documentación o pedir ayuda
+- **Pull Requests**: Plantilla completa para PRs con checklist de revisión
+- **Configuración**: Auto-enlace a discussions y reportes de seguridad
+
+### 🛡️ Características de Seguridad
+- **Dependabot Security**: Monitoreo automático de vulnerabilidades
+- **Política de Seguridad**: Proceso claro para reportar problemas de seguridad
+- **CODEOWNERS**: Control de acceso y revisión obligatoria
+
 ## 🔧 Personalización
 
 Para personalizar el entorno:
@@ -100,7 +160,42 @@ flake8 .
 
 # Análisis con pylint
 pylint *.py
+
+# Gestionar dependencias con Dependabot
+python dependabot_manager.py
 ```
+
+## 🤝 Contribución
+
+¡Las contribuciones son bienvenidas! Por favor lee nuestra [Guía de Contribución](CONTRIBUTING.md) para conocer el proceso.
+
+### Pasos rápidos para contribuir:
+1. **Fork** el repositorio
+2. **Crea** una rama para tu característica (`git checkout -b feature/nueva-caracteristica`)
+3. **Commit** tus cambios (`git commit -m 'feat: agregar nueva característica'`)
+4. **Push** a la rama (`git push origin feature/nueva-caracteristica`)
+5. **Abre** un Pull Request usando nuestra plantilla
+
+### Tipos de contribución:
+- 🐛 **Reportar bugs** usando la [plantilla de bug report](.github/ISSUE_TEMPLATE/bug_report.md)
+- 💡 **Solicitar características** usando la [plantilla de feature request](.github/ISSUE_TEMPLATE/feature_request.md)
+- 📖 **Mejorar documentación** usando la [plantilla de documentación](.github/ISSUE_TEMPLATE/documentation.md)
+- 🆘 **Pedir ayuda** usando la [plantilla de ayuda](.github/ISSUE_TEMPLATE/help.md)
+
+## 🛡️ Seguridad
+
+Para reportar vulnerabilidades de seguridad, por favor sigue nuestras [políticas de seguridad](SECURITY.md). **NO** uses issues públicos para reportar problemas de seguridad.
+
+## 📜 Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT - ve el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📞 Soporte y Comunidad
+
+- 💬 **GitHub Discussions**: Para preguntas generales y discusiones
+- 🐛 **Issues**: Para bugs y solicitudes de características
+- 🔒 **Seguridad**: Para reportes privados de seguridad
+- 📖 **Documentación**: Consulta los archivos MD en el repositorio
 
 ---
 

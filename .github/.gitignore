@@ -1,0 +1,25 @@
+# Configuración adicional para Dependabot
+# Este archivo define patrones de archivos que Dependabot debe ignorar
+
+# Ignorar archivos temporales y de cache
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ignorar archivos de configuración del IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignorar archivos de distribución
+dist/
+build/
+*.egg-info/
+
+# Archivos de entorno
+.env
+.env.local
+.env.production

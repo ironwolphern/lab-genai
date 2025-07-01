@@ -1,0 +1,52 @@
+# Configuración de Dependabot para el repositorio lab-genai
+# Para más información sobre las opciones de configuración:
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Monitorear dependencias de Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Madrid"
+    # Configuración de pull requests
+    open-pull-requests-limit: 5
+    # Prefijos para los commits y PR
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    # Etiquetas para los PR
+    labels:
+      - "dependencies"
+      - "python"
+    # Revisar solo dependencias de seguridad los fines de semana
+    allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    # Ignorar actualizaciones menores de estas dependencias críticas
+    ignore:
+      - dependency-name: "python-dotenv"
+        update-types: ["version-update:semver-patch"]
+    # Agrupar actualizaciones relacionadas
+    groups:
+      development-dependencies:
+        patterns:
+          - "black*"
+          - "flake8*"
+          - "pylint*"
+          - "pytest*"
+      scientific-dependencies:
+        patterns:
+          - "numpy*"
+          - "pandas*"
+          - "matplotlib*"
+          - "jupyter*"
+      web-dependencies:
+        patterns:
+          - "fastapi*"
+          - "uvicorn*"
+          - "requests*"

@@ -1,7 +1,6 @@
 {
   "name": "Python 3.13 Development Environment",
   "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
-  
   // Configuración de funcionalidades
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
@@ -10,7 +9,6 @@
       "shellautocompletion": true
     }
   },
-
   // Configuración del contenedor
   "customizations": {
     "vscode": {
@@ -28,7 +26,9 @@
         "python.linting.enabled": true,
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
-        "python.formatting.blackArgs": ["--line-length=88"],
+        "python.formatting.blackArgs": [
+          "--line-length=88"
+        ],
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
           "source.organizeImports": "explicit"
@@ -36,9 +36,12 @@
       }
     }
   },
-
   // Configuración de puertos (útil para aplicaciones web)
-  "forwardPorts": [8000, 5000, 3000],
+  "forwardPorts": [
+    8000,
+    5000,
+    3000
+  ],
   "portsAttributes": {
     "8000": {
       "label": "Django/FastAPI"
@@ -50,19 +53,15 @@
       "label": "Frontend"
     }
   },
-
   // Comandos post-creación para optimizar el entorno con uv
-  "postCreateCommand": "uv pip install --upgrade pip && uv pip install -r requirements.txt || true",
-
+  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt || true",
   // Usuario no root para seguridad
   "remoteUser": "vscode",
-
   // Montar volúmenes para cache de pip y uv (optimización)
   "mounts": [
     "source=python-pip-cache,target=/home/vscode/.cache/pip,type=volume",
     "source=uv-cache,target=/home/vscode/.cache/uv,type=volume"
   ],
-
   // Variables de entorno
   "containerEnv": {
     "PYTHONUNBUFFERED": "1",

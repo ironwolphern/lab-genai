@@ -15,6 +15,7 @@ pytest-cov==4.*
 # fastapi==0.*
 # uvicorn==0.*
 # requests==2.*
+agno>=1.7.1
 
 # Otras herramientas útiles
 python-dotenv==1.*

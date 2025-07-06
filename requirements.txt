@@ -11,6 +11,13 @@ pytest-cov==4.*
 # matplotlib==3.*
 # jupyter==1.*
 
+# Dependencias de machine learning (comentadas por defecto)
+# scikit-learn==1.*
+# tensorflow==2.*
+# torch==1.*
+crewai>=0.134.0  # Herramientas Multi-agente CrewAI
+crewai-tools>=0.0.1  # Herramientas de CrewAI
+
 # Dependencias web básicas (comentadas por defecto)
 # fastapi==0.*
 # uvicorn==0.*

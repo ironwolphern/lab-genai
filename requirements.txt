@@ -15,10 +15,7 @@ pytest-cov==4.*
 # fastapi==0.*
 # uvicorn==0.*
 # requests==2.*
-autogen-core>=0.6.2
-autogen-agentchat>=0.6.2
-autogen-ext>=0.6.2
-autogenstudio>=0.4.2.2
+autogenstudio
 
 # Otras herramientas útiles
 python-dotenv==1.*

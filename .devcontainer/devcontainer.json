@@ -38,11 +38,15 @@
   },
   // Configuración de puertos (útil para aplicaciones web)
   "forwardPorts": [
+    8080,
     8000,
     5000,
     3000
   ],
   "portsAttributes": {
+    "8080": {
+      "label": "Studio"
+    },
     "8000": {
       "label": "Django/FastAPI"
     },

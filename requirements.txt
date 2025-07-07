@@ -15,6 +15,7 @@ pytest-cov==4.*
 # fastapi==0.*
 # uvicorn==0.*
 # requests==2.*
+langchain>=0.3.26
 langgraph>=0.5.1
 
 # Otras herramientas útiles

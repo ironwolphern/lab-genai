@@ -52,7 +52,7 @@ Este repositorio contiene ejemplos prácticos, tutoriales y documentación para 
 - Aplicaciones conversacionales avanzadas
 - Integración con bases de datos vectoriales
 
-### 🔮 [agno](https://github.com/tu-usuario/lab-genai/tree/agno) - AgentGPT/AGiXT
+### 🔮 [agno](https://github.com/tu-usuario/lab-genai/tree/agno) - Agno
 **Framework para agentes autónomos**
 - Agentes autónomos e independientes
 - Planificación y ejecución de tareas
@@ -90,7 +90,7 @@ git branch -a
 git checkout autogen    # Para AutoGen
 git checkout crewai     # Para CrewAI
 git checkout langGraph  # Para LangGraph
-git checkout agno       # Para AgentGPT/AGiXT
+git checkout agno       # Para Agno
 git checkout main       # Para volver a Python básico
 ```
 

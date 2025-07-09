@@ -53,7 +53,7 @@ Este repositorio contiene ejemplos prácticos, tutoriales y documentación para 
 - Integración con bases de datos vectoriales
 
 ### 🔮 [agno](https://github.com/tu-usuario/lab-genai/tree/agno) - Agno
-**Framework para agentes autónomos**
+**Framework para agentes y multiagentes autónomos**
 - Agentes autónomos e independientes
 - Planificación y ejecución de tareas
 - Razonamiento y toma de decisiones
@@ -117,7 +117,7 @@ Cada rama incluye su propia documentación detallada:
 | **AutoGen** | Latest | Sistemas multiagente conversacionales |
 | **CrewAI** | Latest | Equipos de agentes especializados |
 | **LangGraph** | Latest | Aplicaciones stateful con LLMs |
-| **AgentGPT/AGiXT** | Latest | Agentes autónomos |
+| **Agno** | Latest | Agentes y multiagente autónomos |
 
 ## 🎯 Casos de Uso
 
@@ -160,6 +160,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [LangChain Documentation](https://python.langchain.com/)
+- [Agno Documentation](https://docs.agno.com/introduction)
 
 ### Comunidad
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/langchain)
@@ -170,9 +171,8 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 Para preguntas, sugerencias o colaboraciones:
 
-- 📧 Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
+- 📧 Email: [ironwolphern@outlook.com](mailto:ironwolphern@outlook.com)
 - 💬 Issues: [GitHub Issues](https://github.com/tu-usuario/lab-genai/issues)
-- 🐦 Twitter: [@tu_usuario](https://twitter.com/tu_usuario)
 
 ---
 

@@ -3,7 +3,7 @@ black>=23.4.0
 flake8==7.*
 pylint==3.*
 pytest==8.*
-pytest-cov==6.*
+pytest-cov==7.*
 
 # Dependencias de Contenedores y Orquestación (comentadas por defecto)
 # docker>=7.1.0
